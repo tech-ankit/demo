@@ -19,4 +19,9 @@ public class RegistrationService {
     public Registration createReg(Registration registration) {
         return registrationRepository.save(registration);
     }
+
+    public String deleteReg(long id) {
+        registrationRepository.deleteById(id);
+        return "Record Deleted";
+    }
 }
