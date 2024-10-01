@@ -15,4 +15,8 @@ public class RegistrationService {
     public List<Registration> getAllReg() {
         return registrationRepository.findAll();
     }
+
+    public Registration createReg(Registration registration) {
+        return registrationRepository.save(registration);
+    }
 }
