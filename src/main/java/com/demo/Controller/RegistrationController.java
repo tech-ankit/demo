@@ -28,4 +28,12 @@ public class RegistrationController {
     ){
         return registrationService.createReg(registration);
     }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
+    public String deleteRegistration(
+            @RequestParam long id
+    ){
+        return registrationService.deleteReg(id);
+    }
 }
