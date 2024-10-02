@@ -24,4 +24,12 @@ public class RegistrationService {
         registrationRepository.deleteById(id);
         return "Record Deleted";
     }
+
+    public Registration updateReg(long id, Registration registration) {
+        Registration reg = registrationRepository.findById(id).get();
+        reg.setName(registration.getName());
+        reg.setEmail(registration.getEmail());
+        reg.setMobile(registration.getMobile());
+        return registrationRepository.save(reg);
+    }
 }

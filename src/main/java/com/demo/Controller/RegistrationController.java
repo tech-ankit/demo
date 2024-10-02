@@ -17,7 +17,7 @@ public class RegistrationController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Registration> getAllRegs(
-    ){
+    ) {
         return registrationService.getAllReg();
     }
 
@@ -25,7 +25,7 @@ public class RegistrationController {
     @ResponseStatus(HttpStatus.CREATED)
     public Registration createRegistration(
             @RequestBody Registration registration
-    ){
+    ) {
         return registrationService.createReg(registration);
     }
 
@@ -33,7 +33,16 @@ public class RegistrationController {
     @ResponseStatus(HttpStatus.OK)
     public String deleteRegistration(
             @RequestParam long id
-    ){
+    ) {
         return registrationService.deleteReg(id);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Registration updateRegistration(
+            @PathVariable("id") long id,
+            @RequestBody Registration registration
+    ){
+        return registrationService.updateReg(id,registration);
     }
 }
